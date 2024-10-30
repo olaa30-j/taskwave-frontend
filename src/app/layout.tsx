@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import localFont from "next/font/local";
 import "./globals.css";
-import { UserData, initialUserData } from "@/store/reducers/authSlice";
+import { initialUserData } from "@/store/reducers/authSlice";
 import StoreProvider from "@/store/StoreProvider";
 
 const geistSans = localFont({
@@ -17,25 +17,20 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-
 interface RootLayoutProps {
   children: React.ReactNode;
-  userData?: UserData; 
 }
 
-const RootLayout = ({
-  children,
-  userData = initialUserData, 
-}: RootLayoutProps) =>{
+const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <StoreProvider initialData={userData}>
+        <StoreProvider initialData={initialUserData}>
           {children}
         </StoreProvider>
       </body>
     </html>
   );
-}
+};
 
-export default RootLayout
+export default RootLayout;
