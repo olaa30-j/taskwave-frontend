@@ -1,17 +1,16 @@
 "use client"
 
-import { useAppDispatch, useAppSelector } from "@/store/store"
+import { useAppSelector } from "@/store/store"
 import Navbar from "../components/nav/Navbar";
 import Sidebar from "../components/sidebar/Sidebar";
-import CreateTaskForm from "../components/taskform/CreateTask";
 import { ReactNode } from "react";
 
-interface RootLayoutProps {
+interface DashboardLayoutProps {
   children: ReactNode;
 }
 
-const page:React.FC<RootLayoutProps> = ({ children }) => { 
-  const dispatch = useAppDispatch();
+
+const DashboardLayout:React.FC<DashboardLayoutProps> = ({ children }) => { 
   const { userData } = useAppSelector(state => state.auth);
 
   return (
@@ -25,4 +24,4 @@ const page:React.FC<RootLayoutProps> = ({ children }) => {
   )
 }
 
-export default page
+export default DashboardLayout
