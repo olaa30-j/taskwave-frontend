@@ -35,7 +35,7 @@ export const getUserDataService = (token: string) => {
     };
 };
 
-// create new user
+// create new a
 export const createUserService = async (formData: FormData) => {
     try {
         const response = await axios.post(`${API_URL}/signup`, formData, {

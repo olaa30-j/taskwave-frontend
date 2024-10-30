@@ -1,6 +1,6 @@
 import { Task } from "@/store/reducers/taskSlice";
 import Image from "next/image";
-import React from "react";
+
 export default function TableItem({ task }: { task: Task }) {
   return (
     <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">

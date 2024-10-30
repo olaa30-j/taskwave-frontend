@@ -1,12 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import TableItem from "./TableItem";
 import { Task } from "@/store/reducers/taskSlice";
 
 interface TasksTableProps{
   data: Task[];
-  isLoading: boolean;   
-
+  isLoading: boolean;
 }
 
 const TasksTable: React.FC<TasksTableProps> = ({ data, isLoading }) => {

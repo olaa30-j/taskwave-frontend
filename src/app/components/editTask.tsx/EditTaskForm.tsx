@@ -25,7 +25,7 @@ const EditTaskForm: React.FC<TaskData> = ({ _id, image, title, description, prio
     image: Yup.mixed<File | string>().required('Image is required'),
   });
 
-  const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm<TaskData>({
+  const { register, handleSubmit, formState: { errors }, setValue } = useForm<TaskData>({
     resolver: yupResolver(validationSchema),
     defaultValues: {
       title: title,

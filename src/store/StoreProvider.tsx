@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { Provider } from 'react-redux';
 import { AppStore, makeStore } from './store';
 import { setUserData, UserData } from './reducers/authSlice';
