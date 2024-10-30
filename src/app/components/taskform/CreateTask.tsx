@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 "use client";
 import React, { ChangeEvent, useState } from 'react';
 import { useForm } from 'react-hook-form';

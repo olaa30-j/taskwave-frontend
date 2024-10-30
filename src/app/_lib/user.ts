@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import axios from 'axios';
 import { setCookie } from 'cookies-next';
 import { jwtDecode } from 'jwt-decode';
@@ -35,7 +37,7 @@ export const getUserDataService = (token: string) => {
     };
 };
 
-// create new a
+// create new user
 export const createUserService = async (formData: FormData) => {
     try {
         const response = await axios.post(`${API_URL}/signup`, formData, {

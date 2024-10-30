@@ -1,11 +1,11 @@
-"use client"; // This indicates that the component will run on the client side
+"use client"; 
 
 import TasksTable from "@/app/components/usertasks/TasksTable";
 import { getUserTasks } from "@/store/reducers/taskSlice";
 import { useAppDispatch, useAppSelector } from "@/store/store";
 import { useEffect } from "react";
 
-const UserTasksPage = () => { 
+const page = () => { 
     const dispatch = useAppDispatch();
     const { userTasks, loading, error } = useAppSelector((state) => state.userTasks);
 
@@ -24,4 +24,4 @@ const UserTasksPage = () => {
     );
 };
 
-export default UserTasksPage; 
+export default page; 
