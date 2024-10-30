@@ -3,12 +3,17 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { IUser } from '../signup/page';
 import { useAppDispatch } from '@/store/store';
 import { loginUser } from '@/store/reducers/authSlice';
 import Swal from 'sweetalert2';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
+
+interface IUser {
+  email: string;
+  password: string;
+}
 
 const Page = () => {
   const dispatch = useAppDispatch();
@@ -66,7 +71,8 @@ const Page = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="max-w-md lg:max-w-sm mx-auto my-4">
               <div className="mb-12">
                 <h3 className="text-gray-800 text-4xl font-extrabold">Sign in</h3>
-                <p className="text-gray-800 text-sm mt-6">Don't have an account <a href="javascript:void(0);" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
+                <p className="text-gray-800 text-sm mt-6">Don't have an account 
+                  <Link href="/login" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</Link></p>
               </div>
 
               {/* Email Input */}

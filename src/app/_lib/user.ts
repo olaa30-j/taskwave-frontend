@@ -1,7 +1,6 @@
 import axios from 'axios';
-import { getCookie, setCookie } from 'cookies-next';
+import { setCookie } from 'cookies-next';
 import { jwtDecode } from 'jwt-decode';
-import Cookie from 'js-cookie'
 import Error from 'next/error';
 
 
@@ -36,16 +35,21 @@ export const getUserDataService = (token: string) => {
     };
 };
 
-// create a user
-export const createUserService = async (userData: { email: string; password: string; username: string }) => {
+// create new user
+export const createUserService = async (formData: FormData) => {
     try {
-        const response = await axios.post(`${API_URL}/createUser`, userData);
+        const response = await axios.post(`${API_URL}/signup`, formData, {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        });
         return response.data; 
     } catch (error: any) {
         console.error("User creation error:", error);
-        throw new Error(error.response?.data.message || "User creation failed");
+        throw new Error(error.response?.data?.message || error.message || "User creation failed");
     }
 };
+
 
 // update user data
 export const updateUserService = async (userId: string, updates: object) => {

@@ -2,18 +2,20 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
-import  authReducer  from './reducers/authSlice';
-import { TypedUseSelectorHook, useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import authReducer from './reducers/authSlice';
+import userTasksReducer from './reducers/taskSlice'; 
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 const authPersistConfig = {
     key: 'auth',
     storage,
-    whitelist: ['isAuthenticated', 'userData'], 
+    whitelist: ['isAuthenticated', 'userData'],
 };
+
 
 const rootReducer = combineReducers({
     auth: persistReducer(authPersistConfig, authReducer),
+    userTasks: userTasksReducer,
 });
 
 export const makeStore = () => {
@@ -34,4 +36,4 @@ export type RootState = ReturnType<ReturnType<typeof makeStore>['getState']>;
 export type AppDispatch = ReturnType<typeof makeStore>['dispatch'];
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
-export type AppStore = ReturnType<typeof makeStore>
+export type AppStore = ReturnType<typeof makeStore>;
