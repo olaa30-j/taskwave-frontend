@@ -23,10 +23,10 @@ interface RootLayoutProps {
   userData?: UserData; 
 }
 
-export default function RootLayout({
+const RootLayout = ({
   children,
   userData = initialUserData, 
-}: RootLayoutProps) {
+}: RootLayoutProps) =>{
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
@@ -37,3 +37,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+export default RootLayout
