@@ -20,7 +20,7 @@ const TaskCard: React.FC<TaskCardProp> = ({ image, title, description, priority 
     const backgroundColor = priorityColors[priority] || "bg-white";
 
     return (
-        <div className={`relative flex w-[100%] my-6 shadow-sm border border-slate-200 rounded-lg w-96 max-h-[150px] ${backgroundColor}`}>
+        <div className={`relative px-2 flex w-full my-6 shadow-sm border border-slate-200 rounded-lg w-96 min-h-[150px] ${backgroundColor}`}>
             <div className="relative p-2.5 md:w-[30%] shrink-0 overflow-hidden">
                 <a href={image}>
                     <Image

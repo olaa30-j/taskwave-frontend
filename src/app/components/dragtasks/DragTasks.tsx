@@ -50,10 +50,10 @@ const DragTasks = () => {
     };
 
     return (
-        <div className="flex justify-between">
+        <div className="flex flex-col lg:flex-row gap-4 justify-between">
             {/* Todo Column */}
             <div
-                className="w-[31.2%] p-4 border border-gray-200 rounded"
+                className="lg:w-[31.5%] w-full p-4 border border-gray-200 rounded"
                 onDrop={(e) => onDrop(e, "todo")}
                 onDragOver={onDragOver}
             >
@@ -63,7 +63,7 @@ const DragTasks = () => {
 
             {/* Doing Column */}
             <div
-                className="w-[31.5%] p-4 border border-gray-200 rounded"
+                className="lg:w-[31.5%] w-full p-4 border border-gray-200 rounded"
                 onDrop={(e) => onDrop(e, "doing")}
                 onDragOver={onDragOver}
             >
@@ -73,7 +73,7 @@ const DragTasks = () => {
 
             {/* Done Column */}
             <div
-                className="w-[31.5%] p-4 border border-gray-200 rounded"
+                className="lg:w-[31.5%] w-full p-4 border border-gray-200 rounded"
                 onDrop={(e) => onDrop(e, "done")}
                 onDragOver={onDragOver}
             >
